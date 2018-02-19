@@ -39,18 +39,18 @@ class Stopwatch {
             this.times.seconds = 0;
         }
     }
-    start(){
-        if(!this.running){
+    start() {
+        if (!this.running) {
             this.running = true;
-            this.watch =setInterval(()=>this.step(),10);
+            this.watch = setInterval(() => this.step(), 10);
         }
     }
-    stop(){
+    stop() {
         this.running = false;
         clearInterval(this.watch);
     }
-    resetWatch(){
-        if(!this.running){
+    resetWatch() {
+        if (!this.running) {
             this.reset();
             this.print();
         }
@@ -66,10 +66,7 @@ function pad0(value) {
     return result;
 }
 
-
-const stopwatch = new Stopwatch(
-    document.querySelector('.stopwatch')
-);
+const stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
 
 const startButton = document.getElementById('start');
 startButton.addEventListener('click', () => stopwatch.start());
@@ -78,4 +75,4 @@ const stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
 
 const resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', ()=>stopwatch.resetWatch());
+resetButton.addEventListener('click', () => stopwatch.resetWatch());

@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "babel script.js --watch --out-file script-compiled.js"
+    "start": "babel script.js --watch --out-file script-compiled.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
