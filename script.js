@@ -55,6 +55,17 @@ class Stopwatch {
             this.print();
         }
     }
+    save(){
+        if(!this.running && (this.format(this.times)!=='00:00:00')){
+            const results = document.getElementById('results');
+            const result = document.createElement('li');
+            result.innerHTML = this.format(this.times);
+            results.appendChild(result);
+        }
+    }
+    resetResults(){
+        document.getElementById('results').innerHTML='';
+    }
 
 }
 
@@ -66,7 +77,6 @@ function pad0(value) {
     return result;
 }
 
-
 const stopwatch = new Stopwatch(
     document.querySelector('.stopwatch')
 );
@@ -77,5 +87,11 @@ startButton.addEventListener('click', () => stopwatch.start());
 const stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
 
+const saveButton = document.getElementById('save');
+saveButton.addEventListener('click',()=>stopwatch.save());
+
 const resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', ()=>stopwatch.resetWatch());
+
+const resetResultsButton = document.getElementById('reset-results');
+resetResultsButton.addEventListener('click', ()=>stopwatch.resetResults());
